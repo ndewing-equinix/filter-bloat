@@ -1,0 +1,27 @@
+! Title: Filter Bloat
+! Description: Blocks page bloat that slows sites down
+! Expires: 1 day
+! Homepage: https://github.com/ndewing-equinix/filter-bloat
+! Last modified: 2026-11-21T19:02Z
+
+! Atlassian Cloud (Jira)
+
+! AI agent sessions panel
+atlassian.net##[data-testid="ai-agent-sessions."]
+atlassian.net##[data-testid="ai-agent-sessions.agent-panel-empty-state"]
+atlassian.net##[data-testid="ai-agent-sessions.title-container"]
+
+! Forge app iframes
+atlassian.net##[data-testid="hosted-resources-iframe"]
+
+! Checklist app panel
+atlassian.net##[data-testid^="issue-view-ecosystem.connect.content-panel.com.appbox.ai.checklist__"]
+
+! Sidebar automation and app glances
+atlassian.net##[data-vc="issue-view-automation-apps-panel"]
+
+! Forge panel headers, by title
+atlassian.net##div:has(> :is(h2,h3,button,span):has-text(/^Work item health$/))
+atlassian.net##div:has(> div > h2:has-text(/^(Embeds|Checklist|Work item health)$/)):has([data-testid="issue-view-ecosystem.forge.meat-ball-menu"])
+atlassian.net##div:has(> div > h2:has-text(/^(Embeds|Work item health)$/)):has([data-testid="issue-view-ecosystem.forge.meat-ball-menu"])
+

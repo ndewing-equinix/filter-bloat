@@ -1,0 +1,8 @@
+[tasks.build]
+description = "Combine filters/*.txt into dist/filter-bloat.txt"
+run = '''
+{
+  printf '! Title: Filter Bloat\n! Description: Blocks page bloat that slows sites down\n! Expires: 1 day\n! Homepage: https://github.com/ndewing-equinix/filter-bloat\n! Last modified: %s\n\n' "$(date -u +%Y-%m-%dT%H:%MZ)"
+  for f in filters/*.txt; do cat "$f"; echo; done
+} > dist/filter-bloat.txt
+'''
